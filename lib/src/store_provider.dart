@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:store/store.dart';
 
-class StoreProvider<T extends Store> extends InheritedWidget {
+class StoreProvider<T> extends InheritedWidget {
 
   final T store;
 
@@ -18,7 +17,7 @@ class StoreProvider<T extends Store> extends InheritedWidget {
 
   static T of<@required T>(BuildContext context) {
 
-    StoreProvider storeProvider = context.dependOnInheritedWidgetOfExactType<StoreProvider>() as StoreProvider;
-    return storeProvider.store as T;
+    StoreProvider storeProvider = context.dependOnInheritedWidgetOfExactType<StoreProvider<T>>() as StoreProvider<T>;
+    return storeProvider.store;
   }
 }
