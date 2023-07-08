@@ -27,6 +27,8 @@ class _StoreBuilderState<@required T extends Store, @required S> extends State<S
   void initState() {
     super.initState();
 
+    _state = widget.store.state.value;
+
     /// Subscribes to the store state stream and calls the builder methods when
     /// state changes.
     _streamSubscription = widget.store.state.listen((state) {
